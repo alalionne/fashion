@@ -56,7 +56,7 @@ class MainController extends Controller
 
         //on recupère un produit en fonction de la valeur passée en paramètres
         $product = Product::find($request->id);
-        $sizes = Size::all();
+        $sizes = $product->sizes->toArray(); 
         //dd($produit);
 
         return view('front.show', ['product'=>$product, 'sizes' => $sizes] );

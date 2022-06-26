@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-    <<div class="container">
+    <div class="container">
         <div class="row justify-content-between">
             <div class="col-6">
                 <div class="card mb-4 box-shadow">
@@ -20,7 +20,7 @@
 
                 <select class="custom-select my-4">
                     @foreach ($sizes as $size)
-                    <option value="{{ $size->id }}">{{ $size->name }}</option>
+                    <option value="{{ $size['id'] }}">{{ $size['name'] }}</option>
                     @endforeach
                 </select>
 
