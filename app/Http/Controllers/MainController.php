@@ -27,16 +27,18 @@ class MainController extends Controller
     protected $paginationTheme = "bootstrap";
     public function index(){
         $products = Product::latest()->paginate(6);
-
+        $numberProducts = count(Product::all());
         //dd($produits);
-        return view('front.index', ['products'=> $products]);
+        return view('front.index', ['products'=> $products, 'numberProducts' => $numberProducts]);
 
     }
     public function showProductBySolde(){
         //
-        $products = Product::with('picture')->where('status', 'Solde')->paginate($this->paginate);
+        $products = Product::with('picture')->where('status', 'Solde');
+        $numberProducts = count($products->get());
+        $products = $products->paginate($this->paginate);
 
-        return view('front.solde', ['products' => $products]);
+        return view('front.solde', ['products' => $products, 'numberProducts' => $numberProducts]);
     }
 
     public function showProductByCategorie(int $id){
