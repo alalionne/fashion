@@ -15,9 +15,9 @@ Route::get('/product/{id}',[MainController::class, 'show'])->name('showProduct')
 
 
 
-Route::get('solde', [MainController::class, 'showProductBySolde']);
+Route::get('solde', [MainController::class, 'showProductBySolde'])->name('solde');
 
-Route::get('categorie/{id}', [MainController::class, 'showProductByCategorie'])->where(['id' => '[0-9]+']);
+Route::get('categorie/{id}', [MainController::class, 'showProductByCategorie'])->where(['id' => '[0-9]+'])->name('categorie');
 
 Auth::routes();
 
