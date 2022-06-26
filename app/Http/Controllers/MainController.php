@@ -44,9 +44,11 @@ class MainController extends Controller
 
         $category = Category::find($id);
 
-        $products = Product::where('category_id', $id)->paginate($this->paginate);
+        $products = Product::where('category_id', $id);
+        $numberProducts = count($products->get());
+        $products = $products->paginate($this->paginate);
 
-        return view('front.category', ['products' => $products, 'category' => $category]);
+        return view('front.category', ['products' => $products, 'category' => $category, 'numberProducts' => $numberProducts]);
     }
 
 

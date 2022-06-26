@@ -7,6 +7,14 @@
         @include('partials.menuadmin')
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            @if(session('message'))
+                <div class="alert alert-success alert-dismissible fade show" id="notif-bar" style="margin-top:8px" role="alert">
+                    {{session('message')}}
+                    <button type="button" id="close_notif" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Gestion des produits</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
@@ -50,6 +58,11 @@
                     @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    @include('partials.pagination')
+                </div>
             </div>
         </main>
     </div>

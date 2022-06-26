@@ -82,7 +82,7 @@ class CategoryAdminController extends Controller
 
         $category->update($categoryResquest->all());
 
-        return redirect()->route('Category.index')->with('message', 'Modification avec succès');
+        return redirect()->route('categories.index')->with('message', 'Modification avec succès');
     }
 
     /**
